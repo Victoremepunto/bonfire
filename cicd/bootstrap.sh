@@ -68,7 +68,7 @@ pip install --upgrade 'crc-bonfire>=4.0.0'
 
 # clone repo to download cicd scripts
 rm -fr $BONFIRE_ROOT
-git clone --branch master https://github.com/RedHatInsights/bonfire.git $BONFIRE_ROOT
+git clone --branch test-gitlab-id  https://github.com/Victoremepunto/bonfire.git $BONFIRE_ROOT
 
 # Do a docker login to ensure our later 'docker pull' calls have an auth file created
 source ${CICD_ROOT}/_common_container_logic.sh

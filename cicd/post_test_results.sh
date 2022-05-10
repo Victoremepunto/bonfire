@@ -46,11 +46,14 @@ then
     set +e
 
     # post a comment to GitLab
+
+    GITLAB_API_TARGET_URL="${GITLAB_HOST_IQE_BOT}/api/v4/projects/${gitlabMergeRequestTargetProjectId}/merge_requests/${gitlabMergeRequestIid}/notes"
+
     curl \
       -X POST \
       -H "PRIVATE-TOKEN: ${GITLAB_TOKEN_IQE_BOT}" \
       -H "Content-Type: application/json; charset=utf-8" \
-      ${GITLAB_HOST_IQE_BOT}/api/v4/projects/${gitlabTargetNamespace}%2F${gitlabTargetRepoName}/merge_requests/${gitlabMergeRequestIid}/notes \
+      --url "$GITLAB_API_TARGET_URL" \
       -d "{\"body\":\"$message\"}" -v
     set -e
   fi
