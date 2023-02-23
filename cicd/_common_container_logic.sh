@@ -30,17 +30,18 @@ function docker_login {
 }
 
 function podman_login {
-    podman login -u="$QUAY_USER" -p="$QUAY_TOKEN" quay.io
-    podman login -u="$RH_REGISTRY_USER" -p="$RH_REGISTRY_TOKEN" registry.redhat.io
+    echo "foo"
+#    podman login -u="$QUAY_USER" -p="$QUAY_TOKEN" quay.io
+#    podman login -u="$RH_REGISTRY_USER" -p="$RH_REGISTRY_TOKEN" registry.redhat.io
 }
 
-if [[ -z "$QUAY_USER" || -z "$QUAY_TOKEN" ]]; then
-    echo "QUAY_USER and QUAY_TOKEN must be set"
-    exit 1
-fi
-
-if [[ -z "$RH_REGISTRY_USER" || -z "$RH_REGISTRY_TOKEN" ]]; then
-    echo "RH_REGISTRY_USER and RH_REGISTRY_TOKEN must be set"
-    exit 1
-fi
-
+#if [[ -z "$QUAY_USER" || -z "$QUAY_TOKEN" ]]; then
+#    echo "QUAY_USER and QUAY_TOKEN must be set"
+#    exit 1
+#fi
+#
+#if [[ -z "$RH_REGISTRY_USER" || -z "$RH_REGISTRY_TOKEN" ]]; then
+#    echo "RH_REGISTRY_USER and RH_REGISTRY_TOKEN must be set"
+#    exit 1
+#fi
+#

@@ -16,7 +16,7 @@ fi
 export APP_ROOT=$(pwd)
 export WORKSPACE=${WORKSPACE:-$APP_ROOT}  # if running in jenkins, use the build's workspace
 export BONFIRE_ROOT=${WORKSPACE}/.bonfire
-export CICD_ROOT=${BONFIRE_ROOT}/cicd
+#export CICD_ROOT=${BONFIRE_ROOT}/cicd
 export IMAGE_TAG=$(git rev-parse --short=7 HEAD)
 export BONFIRE_BOT="true"
 export BONFIRE_NS_REQUESTER="${JOB_NAME}-${BUILD_NUMBER}"
@@ -72,8 +72,8 @@ python3 -m pip install --upgrade 'crc-bonfire>=4.10.4'
 
 # clone repo to download cicd scripts
 rm -fr $BONFIRE_ROOT
-echo "Fetching branch '$BONFIRE_REPO_BRANCH' of https://github.com/${BONFIRE_REPO_ORG}/bonfire.git"
-git clone --branch "$BONFIRE_REPO_BRANCH" "https://github.com/${BONFIRE_REPO_ORG}/bonfire.git" "$BONFIRE_ROOT"
+#echo "Fetching branch '$BONFIRE_REPO_BRANCH' of https://github.com/${BONFIRE_REPO_ORG}/bonfire.git"
+#git clone --branch "$BONFIRE_REPO_BRANCH" "https://github.com/${BONFIRE_REPO_ORG}/bonfire.git" "$BONFIRE_ROOT"
 
 # Do a docker login to ensure our later 'docker pull' calls have an auth file created
 source ${CICD_ROOT}/_common_container_logic.sh
@@ -107,4 +107,4 @@ login_to_available_server() {
 
 add_cicd_bin_to_path
 
-login_to_available_server
+#login_to_available_server

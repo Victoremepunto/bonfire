@@ -76,9 +76,10 @@ function docker_build {
     fi
     set -x
 
-    docker push "${IMAGE}:${IMAGE_TAG}"
+    #docker push "${IMAGE}:${IMAGE_TAG}"
     if  [ ! -z "$IMAGE_TAG_LATEST" ]; then
-        docker push "${IMAGE}:${IMAGE_TAG_LATEST}"
+        echo "foo"
+    #    docker push "${IMAGE}:${IMAGE_TAG_LATEST}"
     fi
     set +x
 }
@@ -86,9 +87,10 @@ function docker_build {
 function podman_build {
     set -x
     podman build -f $APP_ROOT/$DOCKERFILE ${CMD_OPTS} $APP_ROOT
-    podman push "${IMAGE}:${IMAGE_TAG}"
+    #podman push "${IMAGE}:${IMAGE_TAG}"
     if  [ ! -z "$IMAGE_TAG_LATEST" ]; then
-        podman push "${IMAGE}:${IMAGE_TAG_LATEST}"
+        echo "foo"
+    #    podman push "${IMAGE}:${IMAGE_TAG_LATEST}"
     fi
     set +x
 }
