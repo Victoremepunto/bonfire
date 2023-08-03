@@ -86,3 +86,23 @@ jobs:
         bonfire config write-default
     - name: pytest
       run: pytest -sv
+
+
+  test-e2e:
+    runs-on: ubuntu-20.04
+    needs: [build]
+    steps:
+    - uses: actions/setup-python@v4
+      name: Setup Python environment
+      with:
+        python-version: '3.10'
+        architecture: 'x64'
+    - uses: actions/download-artifact@v3
+      with:
+        name: dist
+        path: dist
+    - name: RC wheel
+      run: |
+        WHEEL_FILE=$(ls dist/*.whl)
+        pip install "$WHEEL_FILE[test]"
+
